@@ -58,6 +58,10 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
         }
     }
 
+    private static File getFilesDir() {
+        return Context.getFilesDir();
+    }
+    
     private File savePhoto(Bitmap bmp) {
         File retVal = null;
         
@@ -82,14 +86,14 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
              */
             if(check >= 1) {
                 //folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                folder = Context.getFilesDir();
+                folder = this.getFilesDir();
                 
                 if(!folder.exists()) {
                     folder.mkdirs();
                 }
             } else {
                 //folder = Environment.getExternalStorageDirectory();
-                folder = Context.getFilesDir();
+                folder = this.getFilesDir();
             }
             
             File imageFile = new File(folder, "temp.png");
