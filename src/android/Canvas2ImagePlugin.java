@@ -59,7 +59,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
     }
 
     private static File getFilesDir() {
-        return Context.getFilesDir();
+        return new Context().getFilesDir();
     }
     
     private File savePhoto(Bitmap bmp) {
