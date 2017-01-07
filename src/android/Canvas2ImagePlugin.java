@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
+import android.content.Context;
 
 /**
  * Canvas2ImagePlugin.java
@@ -89,14 +90,14 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
 			 * 2.2
 			 */
 			if (check >= 1) {
-				folder = Environment
-					.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+				folder = Context
+					.getFilesDir();
 				
 				if(!folder.exists()) {
 					folder.mkdirs();
 				}
 			} else {
-				folder = Environment.getExternalStorageDirectory();
+				folder = Context.getFilesDir();
 			}
 			
 			File imageFile = new File(folder, "temp.png");
