@@ -43,8 +43,9 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
                 
                 // Save the image
                 File imageFile = savePhoto(bmp);
-                if (imageFile == null)
+                if (imageFile == null) {
                     callbackContext.error("Error while saving image");
+                }
                 
                 // Update image gallery
                 scanPhoto(imageFile);
@@ -59,7 +60,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
     }
 
     private static File getFilesDir() {
-        return new Context().getFilesDir().getPath();
+        return Context.getFilesDir().getPath();
     }
     
     private File savePhoto(Bitmap bmp) {
