@@ -59,7 +59,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
     }
 
     private static File getFilesDir() {
-        return new Context().getFilesDir();
+        return new Context().getFilesDir().getPath();
     }
     
     private File savePhoto(Bitmap bmp) {
@@ -93,7 +93,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
                 }
             } else {
                 //folder = Environment.getExternalStorageDirectory();
-                folder = this.getFilesDir().getPath();
+                folder = this.getFilesDir();
             }
             
             File imageFile = new File(folder, "temp.png");
