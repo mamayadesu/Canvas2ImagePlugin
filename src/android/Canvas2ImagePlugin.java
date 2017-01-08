@@ -59,7 +59,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
         }
     }
 
-    private static String getFilesDir() {
+    private String getFilesDir() {
         return Context.getFilesDir().getPath();
     }
     
