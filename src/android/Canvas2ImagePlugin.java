@@ -59,7 +59,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
         }
     }
 
-    private static File getFilesDir() {
+    private static String getFilesDir() {
         return Context.getFilesDir().getPath();
     }
     
@@ -87,14 +87,14 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
              */
             if(check >= 1) {
                 //folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                folder = this.getFilesDir();
+                folder = new File(this.getFilesDir());
                 
                 if(!folder.exists()) {
                     folder.mkdirs();
                 }
             } else {
                 //folder = Environment.getExternalStorageDirectory();
-                folder = this.getFilesDir();
+                folder = new File(this.getFilesDir());
             }
             
             File imageFile = new File(folder, "temp.png");
