@@ -93,7 +93,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
                 }
             } else {
                 //folder = Environment.getExternalStorageDirectory();
-                folder = this.getFilesDir();
+                folder = this.getFilesDir().getPath();
             }
             
             File imageFile = new File(folder, "temp.png");
