@@ -89,12 +89,14 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
                 //folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 //folder = new File(this.getFilesDir());
                 folder = Environment.getExternalStorageState();
+                folder = new File(folder.getPath()+"/ru.pct_games.imageglitcher/");
                 
                 if(!folder.exists()) {
                     folder.mkdirs();
                 }
             } else {
                 folder = Environment.getExternalStorageDirectory();
+                folder = new File(folder.getPath()+"/ru.pct_games.imageglitcher/");
                 //folder = new File(this.getFilesDir());
             }
             
