@@ -59,9 +59,9 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
         }
     }
 
-    private String getFilesDir() {
+    /*private String getFilesDir() {
         return Context.getFilesDir().getPath();
-    }
+    }*/
     
     private File savePhoto(Bitmap bmp) {
         File retVal = null;
@@ -86,18 +86,18 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
              * 2.2
              */
             if(check >= 1) {
-                //folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                folder = new File(this.getFilesDir());
+                folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                //folder = new File(this.getFilesDir());
                 
                 if(!folder.exists()) {
                     folder.mkdirs();
                 }
             } else {
-                //folder = Environment.getExternalStorageDirectory();
-                folder = new File(this.getFilesDir());
+                folder = Environment.getExternalStorageDirectory();
+                //folder = new File(this.getFilesDir());
             }
             
-            File imageFile = new File(folder, "temp.png");
+            File imageFile = new File(folder, "ru.pct_games.imageglitcher.png");
 
             FileOutputStream out = new FileOutputStream(imageFile);
             bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
